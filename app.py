@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import pickle
 import numpy as np
 import sklearn
+import gunicorn
 
 
 model = pickle.load(open("rf_model.pkl", 'rb'))
@@ -28,4 +29,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0')
